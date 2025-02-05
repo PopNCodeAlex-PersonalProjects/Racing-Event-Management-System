@@ -15,7 +15,8 @@ builder.Services.AddDbContext<RacingContext>(options =>
 
 builder.Services.AddDbContextFactory<RacingContext>(options =>
     options.UseMySql("server=127.0.0.1;database=RacingEventDb;user=root;password=root;",
-                new MySqlServerVersion(new Version(8, 0, 28))));
+                new MySqlServerVersion(new Version(8, 0, 28))),
+                ServiceLifetime.Scoped);
 
 // Add services to the container.
 builder.Services.AddScoped<RaceRepo>();

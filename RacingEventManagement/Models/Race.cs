@@ -7,6 +7,8 @@
         public string Location { get; set; }
         public DateTime Date { get; set; }
         public double Distance { get; set; } // distance in kilometers
+
+        public List<RaceResult> RaceResults { get; set; }
     }
 
 }

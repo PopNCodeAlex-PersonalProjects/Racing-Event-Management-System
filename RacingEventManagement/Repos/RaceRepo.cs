@@ -6,20 +6,27 @@ namespace RacingEventManagement.Repos
 {
     public class RaceRepo
     {
-        private readonly RacingContext _dbContext;
-        public RaceRepo(RacingContext context) {
-        _dbContext = context;
-                }
+        private readonly IDbContextFactory<RacingContext> _dbContextFactory;
+        public RaceRepo(IDbContextFactory<RacingContext> dbContextFactory) {
+            _dbContextFactory = dbContextFactory;
+        }
 
         public void AddRace(Race race) { 
-            _dbContext.Races.Add(race);
-            _dbContext.SaveChanges();
+           
+            using (var context = _dbContextFactory.CreateDbContext())
+            {
+                context.Races.Add(race);
+                context.SaveChanges();
+            }
         }
 
         public List<Race> GetAllRaces()
         {
-            var result = _dbContext.Races.ToList();
-            return result;
+            using (var context = _dbContextFactory.CreateDbContext())
+            {
+                var result = context.Races.ToList();
+                return result;
+            }
         }
     }
 }

@@ -7,5 +7,7 @@
         public string LastName { get; set; }
         public string Team { get; set; } // Red Bull Racing, Mercedes
         public int ExperienceYears { get; set; }
+
+        public List<RaceResult> RaceResults { get; set; }
     }
 }
