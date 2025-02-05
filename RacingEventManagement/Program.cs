@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using RacingEventManagement.Models.Context;
 using RacingEventManagement.Repos;
 using RacingEventManagement.Service;
@@ -5,6 +7,15 @@ using RacingEventManagement.Service;
 var builder = WebApplication.CreateBuilder(args);
 
 AppContext.SetSwitch("System.Globalization.Invariant", false);
+
+
+builder.Services.AddDbContext<RacingContext>(options =>
+    options.UseMySql("server=127.0.0.1;database=RacingEventDb;user=root;password=root;",
+                new MySqlServerVersion(new Version(8, 0, 28))));
+
+builder.Services.AddDbContextFactory<RacingContext>(options =>
+    options.UseMySql("server=127.0.0.1;database=RacingEventDb;user=root;password=root;",
+                new MySqlServerVersion(new Version(8, 0, 28))));
 
 // Add services to the container.
 builder.Services.AddScoped<RaceRepo>();
