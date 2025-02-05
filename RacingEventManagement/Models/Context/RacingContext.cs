@@ -4,6 +4,9 @@ namespace RacingEventManagement.Models.Context
 {
     public class RacingContext : DbContext
     {
+        public RacingContext(DbContextOptions<RacingContext> options) : base(options)
+        {
+        }
         public DbSet<Participant> Participants { get; set; }
         public DbSet<Vehicle> Vehicles { get; set; }
         public DbSet<Race> Races { get; set; }
