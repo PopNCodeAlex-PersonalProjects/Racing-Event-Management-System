@@ -1,0 +1,49 @@
+# Ignore Visual Studio-specific files
+.vs/
+
+# Ignore build artifacts (compiled files)
+bin/
+obj/
+
+# Ignore user-specific Visual Studio settings
+*.user
+*.suo
+*.csproj.user
+
+# Ignore logs, debug files, and generated data
+*.log
+*.tlog
+*.lastcodeanalysissucceeded
+
+# Ignore NuGet packages (restore them via `dotnet restore`)
+packages/
+*.nupkg
+project.lock.json
+
+# Ignore runtime-generated files
+*.pdb
+*.exe
+*.dll
+*.cache
+*.generated.cs
+
+# Ignore temporary files
+*.tmp
+*.bak
+*.swp
+*.swo
+Thumbs.db
+
+# Ignore publish output
+wwwroot/
+publish/
+
+# Ignore environment-specific configuration files
+appsettings.Development.json
+appsettings.Local.json
+appsettings.Test.json
+secrets.json
+
+# Ignore Rider/JetBrains IDE files
+.idea/
+*.sln.iml
