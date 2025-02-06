@@ -61,5 +61,20 @@ namespace RacingEventManagement.Service
             string result = string.Join(Environment.NewLine, races.Select(p => $"Name: {p.Name}, Location: {p.Location}"));
             Console.WriteLine(result);
         }
+
+        public void PerformingDifferentUpdates()
+        {
+            Console.WriteLine("\n\n\n\nTryUpdateHardCodedExistingRace");
+            _repo.TryUpdateHardCodedExistingRace();
+
+            Console.WriteLine("\n\n\n\nUpdateRaceUsingFind");
+            _repo.UpdateRaceUsingFind();
+
+            Console.WriteLine("\n\n\n\nUpdateRaceUsingUpdate");
+            _repo.UpdateRaceUsingUpdate();
+
+            Console.WriteLine("\n\n\n\nUpdateRaceUsingFindAndModifyObejctOutsideContextScope");
+            _repo.UpdateRaceUsingFindAndModifyObejctOutsideContextScope();
+        }
     }
 }

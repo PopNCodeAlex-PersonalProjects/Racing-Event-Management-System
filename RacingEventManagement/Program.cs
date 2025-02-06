@@ -21,6 +21,8 @@ builder.Services.AddDbContextFactory<RacingContext>(options =>
 // Add services to the container.
 builder.Services.AddScoped<RaceRepo>();
 builder.Services.AddScoped<RaceService>();
+builder.Services.AddScoped<ParticipantRepo>();
+builder.Services.AddScoped<ParticipantService>();
 
 builder.Services.AddDbContext<RacingContext>();
 
